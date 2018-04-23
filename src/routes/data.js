@@ -1,0 +1,11 @@
+const express = require('express')
+const router = express.Router()
+const dataController = require('../controllers/data')
+
+//////////////////////////////////////////////////////////////////////////////
+// Basic CRUD Methods
+//////////////////////////////////////////////////////////////////////////////
+
+router.post('/', dataController.create)
+
+module.exports = router
