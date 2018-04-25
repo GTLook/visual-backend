@@ -6,7 +6,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const cors = require('cors')
-const authController = require('./controllers/auth')
+// const authController = require('./controllers/auth')
 const fs = require('fs')
 
 const app = express()
@@ -29,9 +29,7 @@ app.use('/users', require('./routes/users'))
 // Default Route
 //////////////////////////////////////////////////////////////////////////////
 
-app.use(function(req, res, next){
-  next({status: 404, message: 'Route not found' })
-})
+app.use((req, res, next) =>  next({status: 404, message: 'Route not found' }))
 
 //////////////////////////////////////////////////////////////////////////////
 // Error Handling

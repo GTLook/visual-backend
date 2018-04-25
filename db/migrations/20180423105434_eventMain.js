@@ -1,9 +1,9 @@
-const TABLE_NAME = 'eventMain'
+const TABLE_NAME = 'event_main'
 
 exports.up = function(knex, Promise) {
   return knex.schema.createTable(TABLE_NAME, (table) => {
     table.increments()  // id serial primary key
-    table.string('Event_name')
+    table.string('event_name')
   })
 };
 

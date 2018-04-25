@@ -6,9 +6,9 @@ exports.up = function(knex, Promise) {
     table.integer('user_id').notNullable().references('users.id')
     table.timestamp('start_time').notNullable() //event time start
     table.timestamp('end_time') //event time end
-    table.integer('eventMain_id').notNullable().references('eventMain.id')
-    table.integer('eventSub_id').notNullable().references('eventSub.id')
-    table.string('Event_comment')
+    table.integer('event_main_id').notNullable().references('event_main.id')
+    table.integer('event_sub_id').notNullable().references('event_sub.id')
+    table.string('event_comment')
     table.timestamps(true,true) //time changes and created
   })
 };

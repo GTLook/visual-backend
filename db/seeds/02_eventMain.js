@@ -1,4 +1,4 @@
-const TABLE_NAME = 'eventMain'
+const TABLE_NAME = 'event_main'
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
@@ -6,9 +6,9 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex(TABLE_NAME).insert([
-        {id: 1, name: 'Start Event'},
-        {id: 2, name: 'Pause Event'},
-        {id: 3, name: 'End Event'}
+        {id: 1, event_name: 'Start Event'},
+        {id: 2, event_name: 'Pause Event'},
+        {id: 3, event_name: 'End Event'}
       ]);
     })
     .then(() => {
