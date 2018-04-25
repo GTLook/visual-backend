@@ -22,7 +22,7 @@ function login(username, password){
 
   // 1. Check to see if user already exists
   return userModel.getOneByUserName(username)
-  .then(function(data){
+  .then((data) => {
     // 1a. if not, return a 400 with appropriate error message
     if(!data) throw { status: 400, message: "Bad Request"}
 
@@ -32,15 +32,13 @@ function login(username, password){
     // 2. compare password in the database with the password provided by user
     return bcrypt.compare(password, data.password)
   })
-  .catch(bcrypt.MISMATCH_ERROR, function(){
+  .catch(bcrypt.MISMATCH_ERROR, () => {
     // 3. If the passwords do not match, respond with 401 Unauthorized
     throw { status: 401, message: "Unauthorized"}
   })
-  .then(function(){
-    // 4. strip hashed password away from object
-    delete user.password
-    // 5. "return/continue" promise
-    return user
+  .then(() => {
+    delete user.password  // 4. strip hashed password away from object
+    return user  // 5. "return/continue" promise
   })
 }
 
