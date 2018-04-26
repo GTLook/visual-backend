@@ -26,6 +26,8 @@ if(process.env.NODE_ENV !== 'production') require('dotenv').load()
 app.use('/data', require('./routes/data'))
 app.use('/auth', require('./routes/auth'))
 app.use('/users', require('./routes/users'))
+app.use('/eventMain', require('./routes/eventMain'))
+app.use('/eventSub', require('./routes/eventSub'))
 
 //////////////////////////////////////////////////////////////////////////////
 // Default Route

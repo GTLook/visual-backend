@@ -52,7 +52,4 @@ function create(username, password){
   })
 }
 
-module.exports = {
-  getOneByUserName,
-  create
-}
+module.exports = { getOneByUserName, create }

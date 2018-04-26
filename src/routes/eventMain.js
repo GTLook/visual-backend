@@ -1,14 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const dataController = require('../controllers/data')
+const evetMainController = require('../controllers/eventMain')
 
 //////////////////////////////////////////////////////////////////////////////
 // Basic CRUD Methods
 //////////////////////////////////////////////////////////////////////////////
 
-//router.post('/', dataController.create)
-router.get('/', dataController.getAll)
-router.post('/id', dataController.updateRow)
-router.post('/', dataController.createRow)
+router.get('/', evetMainController.getAll)
 
 module.exports = router

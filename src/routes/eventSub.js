@@ -1,14 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const dataController = require('../controllers/data')
+const eventSubController = require('../controllers/eventSub')
 
 //////////////////////////////////////////////////////////////////////////////
 // Basic CRUD Methods
 //////////////////////////////////////////////////////////////////////////////
 
-//router.post('/', dataController.create)
-router.get('/', dataController.getAll)
-router.post('/id', dataController.updateRow)
-router.post('/', dataController.createRow)
+router.get('/', eventSubController.getAll)
 
 module.exports = router
