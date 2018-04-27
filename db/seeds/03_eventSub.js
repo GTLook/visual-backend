@@ -9,10 +9,10 @@ exports.seed = function(knex, Promise) {
         {id: 1, event_name: 'Starting up', event_main_id: 1},
         {id: 2, event_name: 'Running', event_main_id: 1},
         {id: 3, event_name: 'Slowing Down', event_main_id: 1},
-        {id: 4, event_name: 'Maintenece', event_main_id: 2},
+        {id: 4, event_name: 'Maintenance', event_main_id: 2},
         {id: 5, event_name: 'Starting back up', event_main_id: 2},
         {id: 6, event_name: 'Failed', event_main_id: 3},
-        {id: 7, event_name: 'Sucsess', event_main_id: 3},
+        {id: 7, event_name: 'Success', event_main_id: 3},
         {id: 8, event_name: 'Waiting on materials', event_main_id: 3},
         {id: 9, event_name: 'Waiting on customer', event_main_id: 3}
       ]);

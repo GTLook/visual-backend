@@ -8,7 +8,7 @@ const dataController = require('../controllers/data')
 
 //router.post('/', dataController.create)
 router.get('/', dataController.getAll)
-router.post('/id', dataController.updateRow)
+router.put('/:id', dataController.updateRow)
 router.post('/', dataController.createRow)
 
 module.exports = router

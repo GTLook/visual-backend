@@ -10,6 +10,7 @@ const getAll = (request, response, next) => {
   .then((data) => {
     response.status(200).json({ data })
   })
+  .catch(next)
 }
 //
 // const show = (request, response, next) => {
@@ -21,18 +22,19 @@ const getAll = (request, response, next) => {
 const createRow = (request, response, next) => {
   dataModel.create(request.body)
   .then((data) => {
-    if(result.errors) return next({ status: 400, message: `Could not create new account`, errors: result.errors })
     response.status(201).json({ data: result })
   })
+  .catch(next)
 }
 
 const updateRow = (request, response, next) => {
   const body = request.body
   const id = request.params.id
-  dataModel.modify(id, body)
+  dataModel.updateRow(id, body)
   .then((data) => {
-    response.status(200).json({ data: result })
+    response.status(200).json({ data })
   })
+  .catch(next)
 }
 
 // const remove = (request, response, next) => {
@@ -41,5 +43,4 @@ const updateRow = (request, response, next) => {
 //   response.status(200).json({ data })
 // }
 
-//module.exports = { getAll, create, show, modify, remove }
 module.exports = { getAll, createRow, updateRow }
