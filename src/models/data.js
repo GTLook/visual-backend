@@ -24,10 +24,6 @@ const createRow = (id, body) => {
 }
 
 const updateRow = (id, body) => {
-  // const obj = .find(ele => ele.id === id)
-  // obj.data.name = body
-  //.
-  // return obj
   console.log(id, body)
   if(body.element === 'Comment'){
     return db('data').update({event_comment: body.data}).where({id}).returning('*').then(([data]) => {
