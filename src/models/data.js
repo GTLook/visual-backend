@@ -34,6 +34,16 @@ const updateRow = (id, body) => {
       return data.event_comment
     })
   }
+  if(body.element === 'Main'){
+    return db('data').update({event_main_id: body.data}).where({id}).returning('*').then(([data]) => {
+      return data.event_comment
+    })
+  }
+  if(body.element === 'Secondary'){
+    return db('data').update({event_sub_id: body.data}).where({id}).returning('*').then(([data]) => {
+      return data.event_comment
+    })
+  }
   return Promise.reject({message: 'property does not exists'})
 }
 
