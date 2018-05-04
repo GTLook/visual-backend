@@ -10,5 +10,6 @@ const dataController = require('../controllers/data')
 router.get('/', dataController.getAll)
 router.put('/:id', dataController.updateRow)
 router.post('/', dataController.createRow)
+router.delete('/:id', dataController.deleteRow)
 
 module.exports = router

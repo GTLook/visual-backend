@@ -37,10 +37,13 @@ const updateRow = (request, response, next) => {
   .catch(next)
 }
 
-// const remove = (request, response, next) => {
-//   const id = request.params.id
-//   const data = model.remove(id)
-//   response.status(200).json({ data })
-// }
+const deleteRow = (request, response, next) => {
+  const id = request.params.id
+  const data = model.remove(id)
+  .then((data) => {
+    response.status(200).json({ data })
+  })
+  .catch(next)
+}
 
-module.exports = { getAll, createRow, updateRow }
+module.exports = { getAll, createRow, updateRow, deleteRow}

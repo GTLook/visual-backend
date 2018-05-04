@@ -33,7 +33,7 @@ app.use('/eventSub', require('./routes/eventSub'))
 // Default Route
 //////////////////////////////////////////////////////////////////////////////
 
-app.use((req, res, next) =>  next({status: 404, message: 'Route not found' }))
+app.use((req, res, next) => next({status: 404, message: 'Route not found' }))
 
 //////////////////////////////////////////////////////////////////////////////
 // Error Handling

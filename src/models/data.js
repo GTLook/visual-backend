@@ -7,11 +7,11 @@ const db = require('../../db')
 const getAll = () => {
   return db('data')
   .select('data.id as id',
-  'data.start_time as Start',
-  'data.end_time as End',
-  'data.event_comment as Comment',
-  'event_main.event_name as Main',
-  'event_sub.event_name as Secondary')
+    'data.start_time as Start',
+    'data.end_time as End',
+    'data.event_comment as Comment',
+    'event_main.event_name as Main',
+    'event_sub.event_name as Secondary')
   .join('event_main','event_main.id','data.event_main_id')
   .join('event_sub','event_sub.id','data.event_sub_id')
   .orderBy('data.id')
@@ -43,5 +43,11 @@ const updateRow = (id, body) => {
   return Promise.reject({message: 'property does not exists'})
 }
 
+const deleteRow = (id) => {
+  db('data')
+    .where('data.id', id)
+    .delete()
+}
 
-module.exports = { getAll, createRow, updateRow }
+
+module.exports = { getAll, createRow, updateRow, deleteRow }
