@@ -6,7 +6,9 @@ const db = require('../../db')
 
 const getAll = () => {
   return db('data')
-  .select('data.id as id',
+  .select(
+    'data.id as id',
+    'users.username as username',
     'data.start_time as Start',
     'data.end_time as End',
     'data.event_comment as Comment',
@@ -14,6 +16,7 @@ const getAll = () => {
     'event_sub.event_name as Secondary')
   .join('event_main','event_main.id','data.event_main_id')
   .join('event_sub','event_sub.id','data.event_sub_id')
+  .join('users','users.id','data.user_id')
   .orderBy('data.id')
 }
 
