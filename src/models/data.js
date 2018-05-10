@@ -14,15 +14,15 @@ const getAll = () => {
     'data.event_comment as Comment',
     'event_main.event_name as Main',
     'event_sub.event_name as Secondary')
-  .join('event_main','event_main.id','data.event_main_id')
-  .join('event_sub','event_sub.id','data.event_sub_id')
+  .leftJoin('event_main','event_main.id','data.event_main_id')
+  .leftJoin('event_sub','event_sub.id','data.event_sub_id')
   .join('users','users.id','data.user_id')
   .orderBy('data.id')
 }
 
-const createRow = (id, body) => {
-  db('data')
-  .insert({ id, start_time, end_time, comment, event_main, event_sub })
+const createRow = (user_id) => {
+   return db('data')
+  .insert({ user_id })
   .returning('*')
 }
 
@@ -47,7 +47,7 @@ const updateRow = (id, body) => {
 }
 
 const deleteRow = (id) => {
-  db('data')
+  return db('data')
     .where('data.id', id)
     .delete()
 }

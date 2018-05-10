@@ -20,10 +20,9 @@ const getAll = (request, response, next) => {
 // }
 
 const createRow = (request, response, next) => {
-  dataModel.create(request.body)
-  .then((data) => {
-    response.status(201).json({ data: result })
-  })
+  if(!request.body.user_id) return next({ status: 400, message: 'id Required'})
+  dataModel.createRow(request.body.user_id)
+  .then((data) => {return response.status(201).send({ data })})
   .catch(next)
 }
 
@@ -39,9 +38,10 @@ const updateRow = (request, response, next) => {
 
 const deleteRow = (request, response, next) => {
   const id = request.params.id
-  const data = model.remove(id)
+  dataModel.deleteRow(id)
   .then((data) => {
-    response.status(200).json({ data })
+    console.log(data);
+    response.status(200).send({data})
   })
   .catch(next)
 }
