@@ -15,19 +15,16 @@ Add additional notes about how to deploy this on a live system
 fork and clone the project and the front end:
 
 * run: npm install
-* run: createdb (db name)
+* run: createdb visualize
 * run: npm run knex migrate:latest
 * run: npm run knex seed:run
   - only if you want the seeded data
-* update the db name in the knexfile.js
-  - on the backend
 * run: npm run dev
   - remember to update the frontend ./src/helper to listen for local port 5000
 
 ## Built With
 
 * HTML, CSS, JS
-* [bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/) - The css framework used
 * [node](https://www.npmjs.com/) - Package Management
 * [express](https://www.npmjs.com/package/express) - Dependency Management
 * [postgresQL](https://rometools.github.io/rome/) - Database
